@@ -1,4 +1,4 @@
-import { json, useRouteError } from "react-router";
+import { useRouteError } from "react-router";
 import PageContent from "../components/PageContent";
 import RootLayout from "./RootLayout";
 
@@ -9,7 +9,7 @@ const ErrorPage = () => {
   let message = "Something Went Wrong";
 
   if (error.status === 500) {
-    message = JSON.parse(error.data).message;
+    message = error.data.message;
   }
   if (error.status === 404) {
     title = "Not FOUND";
